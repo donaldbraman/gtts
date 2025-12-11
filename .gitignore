@@ -80,3 +80,7 @@ output/
 
 # UV lock file (optional to commit)
 # uv.lock
+
+# Google OAuth credentials (secrets)
+google_credentials.json
+google_token.json
