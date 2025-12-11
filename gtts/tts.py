@@ -1,7 +1,5 @@
 """Text-to-Speech generation using Google Gemini API."""
 
-import base64
-import io
 import wave
 from pathlib import Path
 
@@ -64,9 +62,9 @@ class TextToSpeech:
             ),
         )
 
-        # Extract audio data from response
+        # Extract audio data from response (already bytes, not base64)
         audio_data = response.candidates[0].content.parts[0].inline_data.data
-        return base64.b64decode(audio_data)
+        return audio_data
 
     def _chunk_text(self, text: str) -> list[str]:
         """Split text into chunks that fit within context window.
