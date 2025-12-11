@@ -31,6 +31,10 @@ class Settings(BaseSettings):
     # Text chunking (to stay under context limit)
     max_chunk_chars: int = 20000  # ~5000 tokens, well under 32k limit
 
+    # Google OAuth settings (for Google Docs access)
+    google_credentials_path: Path = Path("google_credentials.json")
+    google_token_path: Path = Path("google_token.json")
+
     model_config = {"env_prefix": "", "extra": "ignore"}
 
     def __init__(self, **kwargs):
